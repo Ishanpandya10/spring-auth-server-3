@@ -1,0 +1,379 @@
+{
+	"info": {
+		"_postman_id": "404ac551-acd6-4a2d-b3d1-d549dd6d859d",
+		"name": "Spring-Sec-Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30343922"
+	},
+	"item": [
+		{
+			"name": "jwks",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "token_client_credentials",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Metadata",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "OpenID",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "test-request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Authorize",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "token_authorization_code",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "client",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "secret",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "client",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://127.0.0.1:8080/login/oauth2/code/oidc-client",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "qdFe7yo7rD5WuVtW2dovs7783rbMgApEQKDFbeGQ8rsublk2qStT4pEd8dGL9RmMZKyWI-Ag_--HNH4iRZaeU_gNF7lzMGwdJMPy_Lh5RA4CNSTfXxkQT2KolPW2AM4T",
+							"type": "text"
+						},
+						{
+							"key": "code_verifier",
+							"value": "IWKK9TGXeaYi1mQUPVVSxWvyGr9AsCQRDgFusAVAjU8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/oauth2/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth2",
+						"token"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "client",
+							"disabled": true
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://127.0.0.1:8080/login/oauth2/code/oidc-client",
+							"disabled": true
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"disabled": true
+						},
+						{
+							"key": "code",
+							"value": "DlzcXU1JDhmoabKRhaFsHVeZoyzn9jVIp-Gb_FKjuNQOH-vPiuox8caUnfhmC6rGKgB86lR1UOLxDIuG1upJvOfPdIgQwiL_bYmORHH-GsV_r14BnI0o-CbMyENa2d3E",
+							"disabled": true
+						},
+						{
+							"key": "code_verifier",
+							"value": "IWKK9TGXeaYi1mQUPVVSxWvyGr9AsCQRDgFusAVAjU8",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "token_client1",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "client",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "secret",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "client",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://127.0.0.1:8080/login/oauth2/code/oidc-client",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "qdFe7yo7rD5WuVtW2dovs7783rbMgApEQKDFbeGQ8rsublk2qStT4pEd8dGL9RmMZKyWI-Ag_--HNH4iRZaeU_gNF7lzMGwdJMPy_Lh5RA4CNSTfXxkQT2KolPW2AM4T",
+							"type": "text"
+						},
+						{
+							"key": "code_verifier",
+							"value": "IWKK9TGXeaYi1mQUPVVSxWvyGr9AsCQRDgFusAVAjU8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/oauth2/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth2",
+						"token"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "client",
+							"disabled": true
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://127.0.0.1:8080/login/oauth2/code/oidc-client",
+							"disabled": true
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"disabled": true
+						},
+						{
+							"key": "code",
+							"value": "DlzcXU1JDhmoabKRhaFsHVeZoyzn9jVIp-Gb_FKjuNQOH-vPiuox8caUnfhmC6rGKgB86lR1UOLxDIuG1upJvOfPdIgQwiL_bYmORHH-GsV_r14BnI0o-CbMyENa2d3E",
+							"disabled": true
+						},
+						{
+							"key": "code_verifier",
+							"value": "IWKK9TGXeaYi1mQUPVVSxWvyGr9AsCQRDgFusAVAjU8",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "token_client2",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "secret2",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "client2",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "client2",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://127.0.0.1:8080/login/oauth2/code/oidc-client2",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "gmO6ZBvJ-mvHXH4GeIeCCDG7tVY8Xyw9XiHgfhvQkiW6fbmw1IUCxE6cWFk_ZeOc27kM-WsHnwL8hcDpWrC62AoeVwBbYfBrjohSsU36RxoFCnxL_JqSAnZS24cdWLgl",
+							"type": "text"
+						},
+						{
+							"key": "code_verifier",
+							"value": "IWKK9TGXeaYi1mQUPVVSxWvyGr9AsCQRDgFusAVAjU8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/oauth2/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth2",
+						"token"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "client",
+							"disabled": true
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://127.0.0.1:8080/login/oauth2/code/oidc-client",
+							"disabled": true
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"disabled": true
+						},
+						{
+							"key": "code",
+							"value": "DlzcXU1JDhmoabKRhaFsHVeZoyzn9jVIp-Gb_FKjuNQOH-vPiuox8caUnfhmC6rGKgB86lR1UOLxDIuG1upJvOfPdIgQwiL_bYmORHH-GsV_r14BnI0o-CbMyENa2d3E",
+							"disabled": true
+						},
+						{
+							"key": "code_verifier",
+							"value": "IWKK9TGXeaYi1mQUPVVSxWvyGr9AsCQRDgFusAVAjU8",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Introspect",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "client",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "secret",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiI0ZDYxNzhmYS03YWFiLTRhMmItYjgxYi05ZmU5YTU4YmIwYTciLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiYXVkIjoiY2xpZW50IiwibmJmIjoxNzA3ODM1NzAwLCJzY29wZSI6WyJvcGVuaWQiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwIiwiZXhwIjoxNzA3ODM3NTAwLCJpYXQiOjE3MDc4MzU3MDAsImp0aSI6IjEzNjMzYWE1LTVjOGQtNGRiNi1hZDhhLTk1ZDhiNjJhMDZmOCJ9.LpJAga6E1h39aYix7mBidFhgqWFDS-gz5n61IgeWvSqlBQuXqZggwWmLeJZ6Wnlh32P0c-TdKov3WvGSrwSp5nH3WMyBAqJuuIlzUJ2NFko4jr6Ty5v-ho614XTHtQ2jTm1lav2iqeLTOJSDm5vZJ5yVMljysoGUmokurLdMcnjO-9rxowjhnOr_FVRHIFxUFfhmoaFsnnCbI2qG7wmj2bSNqbgmEiY5sm0mdnjIrTU8qdyiHO_3VVV8xNPAW6Aq9CWAMKRkbIvMNdL48GNdZSTZwlb4wfl00xcte2LO2K800qel1o4C0j_nJSI2g-Hyd3Vuy435GUaz7nGKebm96A",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/oauth2/introspect",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth2",
+						"introspect"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
