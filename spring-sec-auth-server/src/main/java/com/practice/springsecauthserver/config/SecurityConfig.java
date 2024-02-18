@@ -11,12 +11,15 @@ import org.springframework.core.annotation.Order;
 import org.springframework.http.MediaType;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.server.authorization.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration;
 import org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.OAuth2AuthorizationServerConfigurer;
 import org.springframework.security.oauth2.server.authorization.settings.AuthorizationServerSettings;
+import org.springframework.security.oauth2.server.authorization.token.JwtEncodingContext;
+import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenCustomizer;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 import org.springframework.security.web.util.matcher.MediaTypeRequestMatcher;
@@ -30,7 +33,6 @@ import java.util.UUID;
 @Configuration
 public class SecurityConfig {
 
-    //http://127.0.0.1:8080/oauth2/authorize?response_type=code&client_id=client&scope=openid&redirect_uri=http://127.0.0.1:8080/login/oauth2/code/oidc-client&code_challenge=C_kOhPAQTqbRmtG0jKMwQO5QPTTZjIkfHbAciVnH-eQ&code_challenge_method=S256
     //http://127.0.0.1:8080/oauth2/authorize?response_type=code&client_id=client1&scope=openid&redirect_uri=http://127.0.0.1:8080/login/oauth2/code/oidc-client1&code_challenge=C_kOhPAQTqbRmtG0jKMwQO5QPTTZjIkfHbAciVnH-eQ&code_challenge_method=S256
     //http://127.0.0.1:8080/oauth2/authorize?response_type=code&client_id=client2&scope=openid&redirect_uri=http://127.0.0.1:8080/login/oauth2/code/oidc-client2&code_challenge=C_kOhPAQTqbRmtG0jKMwQO5QPTTZjIkfHbAciVnH-eQ&code_challenge_method=S256
 
@@ -148,4 +150,12 @@ public class SecurityConfig {
         return AuthorizationServerSettings.builder().build();
     }
 
+    @Bean
+    public OAuth2TokenCustomizer<JwtEncodingContext> oAuth2TokenCustomizer() {
+        return context -> {
+            context.getClaims().claim("test", "test");
+            var authorities = context.getPrincipal().getAuthorities();
+            context.getClaims().claim("authorities", authorities.stream().map(GrantedAuthority::getAuthority).toList());
+        };
+    }
 }

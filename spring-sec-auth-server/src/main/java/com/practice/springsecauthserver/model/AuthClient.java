@@ -9,6 +9,9 @@ import lombok.Setter;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
+import org.springframework.security.oauth2.server.authorization.settings.TokenSettings;
+
+import java.time.Duration;
 
 @Entity(name = "clients")
 @Getter
@@ -34,6 +37,9 @@ public class AuthClient {
                 .authorizationGrantType(new AuthorizationGrantType(authClient.getGrantType()))
                 .redirectUri(authClient.getRedirectUri())
                 .scope(authClient.getScope())
+                .tokenSettings(TokenSettings.builder()
+                        .accessTokenTimeToLive(Duration.ofHours(24))
+                        .build())
                 .build();
     }
 
