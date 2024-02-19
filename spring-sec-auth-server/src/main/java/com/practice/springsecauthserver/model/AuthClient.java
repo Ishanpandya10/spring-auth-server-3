@@ -35,6 +35,7 @@ public class AuthClient {
                 .clientSecret(authClient.getClientSecret())
                 .clientAuthenticationMethod(new ClientAuthenticationMethod(authClient.getAuthMethod()))
                 .authorizationGrantType(new AuthorizationGrantType(authClient.getGrantType()))
+                .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
                 .redirectUri(authClient.getRedirectUri())
                 .scope(authClient.getScope())
                 .tokenSettings(TokenSettings.builder()
